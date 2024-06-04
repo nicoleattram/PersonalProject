@@ -9,7 +9,7 @@ if __name__ == '__main__':
     stop2 = 'TAA'
     stop3 = 'TGA'
 
-    def gene(self, string): #creates function gene for a given string
+    def gene(string): #creates function gene for a given string
         list = [] #created empty list to hold codon
         codon=3 #set index to split up list by 3
 
@@ -32,10 +32,10 @@ if __name__ == '__main__':
         else:
             for k in len(stop_ind):
                 for l in list:
-                    codon_list.append(start_ind:k)
+                    codon_list.append(list[start_ind:k])
 
         return codon_list
 
-        user = str(input("Please insert your gene: "))
+    user = str(input("Please insert your gene: "))
 
-        gene_extract = gene(user)
+    gene_extract = gene(user.upper())
