@@ -17,25 +17,26 @@ if __name__ == '__main__':
             list.append(string[i:i+codon]) #creates a list of codons
 
         start_ind = [] #creates an empty set for stop indices
-        for j in list:
+        for j in range(0,len(list)):
             if list[j].upper() == start:
                 start_ind.append(j)
 
             if list[j].upper() == stop1 or list[j].upper() == stop2 or list[j].upper() == stop3:
-                stop_ind = j #adds an indice to the list for each stop codon
+                stop_ind = j+1 #adds an index to the list for each stop codon
 
         codon_list = []
 
         if start_ind == []:
-            codon_list = []
+            codon_list = '' #creates empty string for codons
 
         else:
-            for k in len(stop_ind):
-                for l in list:
-                    codon_list.append(list[start_ind:k])
+            for k in start_ind:
+                for l in range(k, stop_ind): #from start index to stop index
+                    codon_list += list[l]
 
         return codon_list
 
     user = str(input("Please insert your gene: "))
 
     gene_extract = gene(user.upper())
+    print(gene_extract)
