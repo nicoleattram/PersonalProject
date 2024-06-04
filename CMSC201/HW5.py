@@ -25,14 +25,19 @@ if __name__ == '__main__':
                 stop_ind = j+1 #adds an index to the list for each stop codon
 
         codon_list = []
+        codons = ''  # creates empty string for codons
 
         if start_ind == []:
-            codon_list = '' #creates empty string for codons
+            codon_list = []
 
         else:
             for k in start_ind:
+                codons = ''
                 for l in range(k, stop_ind): #from start index to stop index
-                    codon_list += list[l]
+                    codons += list[l]
+                    codons = ''.join(codons) #joins all the codons together
+
+                codon_list.append(codons)
 
         return codon_list
 
