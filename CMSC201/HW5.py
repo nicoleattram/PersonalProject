@@ -17,12 +17,14 @@ if __name__ == '__main__':
             list.append(string[i:i+codon]) #creates a list of codons
 
         start_ind = [] #creates an empty set for stop indices
+        stop_ind = []
+
         for j in range(0,len(list)):
             if list[j].upper() == start:
                 start_ind.append(j)
 
             if list[j].upper() == stop1 or list[j].upper() == stop2 or list[j].upper() == stop3:
-                stop_ind = j+1 #adds an index to the list for each stop codon
+                stop_ind.append(j+1) #adds an index to the list for each stop codon
 
         codon_list = []
         codons = ''  # creates empty string for codons
@@ -33,7 +35,7 @@ if __name__ == '__main__':
         else:
             for k in start_ind:
                 codons = ''
-                for l in range(k, stop_ind): #from start index to stop index
+                for l in range(k, stop_ind[0]): #from start index to stop index
                     codons += list[l]
                     codons = ''.join(codons) #joins all the codons together
 
